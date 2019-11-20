@@ -21,7 +21,7 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index', {
-        headline: `Yo, Weather Homey`,
+        headline: `Yo Weather Homey`,
         name: 'Homey'
     })
 })
@@ -56,6 +56,7 @@ app.get('/weather', (req, res) => {
                     Error: err
                 })
             } else {
+                // console.log(forecastData)
                 res.send({
                     location,
                     forecastData

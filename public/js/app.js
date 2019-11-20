@@ -22,8 +22,10 @@ weatherForm.addEventListener('submit', (e) => {
                 console.log('hit error')
                 return messageOne.textContent = data.Error
             } else {
+                let units = data.forecastData.temperatureUnit
+                units == 'si' ? units = 'Celcius' : 'Farenheit'
                 messageOne.textContent = data.location
-                messageTwo.textContent = `${data.forecastData.currTemp} degrees, currently and ${data.forecastData.summary}`
+                messageTwo.textContent = `${data.forecastData.currTemp} degrees ${units}, currently and ${data.forecastData.summary}`
             }
   
         })

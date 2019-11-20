@@ -6,7 +6,7 @@ const forecast = (latitude, longitude, callback) => {
     
     request({url, json: true }, (err, res, body) => {
         log(body)
-        const {code, daily, currently} = body
+        const {code, daily, currently, flags} = body
         const {temperature, precipProbability, summary} = currently
         if(err) {
             callback(`Your Wifi connected? Couldn't connect to service`, undefined)
@@ -18,7 +18,8 @@ const forecast = (latitude, longitude, callback) => {
             callback(undefined, {
                 currTemp: temperature,
                 rainPotential: precipProbability.toFixed(2),
-                summary
+                summary,
+                temperatureUnit: flags.units
             })
         }
     })
