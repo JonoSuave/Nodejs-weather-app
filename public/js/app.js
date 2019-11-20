@@ -23,7 +23,7 @@ weatherForm.addEventListener('submit', (e) => {
                 return messageOne.textContent = data.Error
             } else {
                 messageOne.textContent = data.location
-                messageTwo.textContent = `${data.forecastData.currTemp} degrees, currently`
+                messageTwo.textContent = `${data.forecastData.currTemp} degrees, currently and ${data.forecastData.summary}`
             }
   
         })
